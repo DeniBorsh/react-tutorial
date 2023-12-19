@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { less } from '../API/util.js'
+import { less } from '../utils/util.js'
 
 export const useSortedPosts = (posts, sort) => {
     const sortedPosts = useMemo(() => {
