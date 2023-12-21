@@ -27,18 +27,20 @@ const PostIdPage = () => {
             <h1>Вы открыли страницу поста с ID = {params.id}</h1>
             {isPostLoading
                 ? <MyLoader/>
-                : <div>{post.id}. {post.title}</div>
-            }
-            {isCommentsLoading
-                ? <MyLoader/>
                 : <div>
-                    {comments.map(comm => 
-                        <div style={{marginTop: 10}}>
-                            <h5>{comm.email}</h5>
-                            <div>{comm.body}</div>
-                        </div>
-                    )}
-                  </div>
+                    <div>{post.id}. {post.title}</div>
+                    {isCommentsLoading
+                    ? <MyLoader/>
+                    : <div>
+                        {comments.map(comm => 
+                            <div key={comm.id} style={{marginTop: 10}}>
+                                <h5>{comm.email}</h5>
+                                <div>{comm.body}</div>
+                            </div>
+                        )}
+                      </div>
+                    }
+                    </div>
             }
         </div>
     );
